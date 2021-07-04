@@ -3,8 +3,10 @@ import jwtDecode from 'jwt-decode'
 
 const initialState = {
   token: localStorage.getItem("token"),
-  name: null,
-  email: null,
+  name: localStorage.getItem("name"),
+  email: localStorage.getItem("email"),
+  exp: null,
+  _id: null,
 };
 
 const stocksReducer = (state = initialState, action) => {

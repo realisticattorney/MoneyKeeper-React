@@ -8,14 +8,16 @@ import { Redirect } from 'react-router-dom';
 
 function Sign_Up({ fetchSignUp }) {
   const { register, handleSubmit } = useForm();
-  const auth = useSelector(state => state.auth);
+  const auth = useSelector(state => state.allStocks);
+  console.log(auth)
+  console.log(auth)
   console.log(auth)
   const onSubmit = (data) => {
     console.log(data);
     fetchSignUp(data);
   };
 
-  if(auth.user_id) return <Redirect to="/" />
+  if(auth.token) return <Redirect to="/main" />
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
