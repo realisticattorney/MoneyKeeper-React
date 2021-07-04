@@ -3,13 +3,17 @@ import React from "react";
 // import { fetchSignUp } from "../actions/actionsSignUp";
 import { connect, useSelector } from "react-redux";
 // import PropTypes from "prop-types";
+import jwtDecode from "jwt-decode";
 import { Redirect } from "react-router-dom";
 
 export default function Main() {
   const auth = useSelector((state) => state);
   console.log(auth);
-  console.log(auth);
-  console.log(auth);
+  const user = jwtDecode(auth.allStocks.token);
+  console.log(user)
+  console.log(user)
+  console.log(user)
+  console.log(user)
   // const onSubmit = (data) => {
   //   console.log(data);
   //   fetchSignUp(data);
