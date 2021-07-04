@@ -4,13 +4,19 @@ import { useForm } from "react-hook-form";
 import { fetchSignUp } from "../actions/actionsSignUp";
 import { connect, useSelector } from "react-redux";
 import PropTypes from "prop-types";
+import { Redirect } from 'react-router-dom';
 
 function Sign_Up({ fetchSignUp }) {
   const { register, handleSubmit } = useForm();
+  const auth = useSelector(state => state.auth);
+  console.log(auth)
   const onSubmit = (data) => {
     console.log(data);
     fetchSignUp(data);
   };
+
+  if(auth.user_id) return <Redirect to="/" />
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input
