@@ -1,25 +1,26 @@
 /* eslint-disable */
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import { fetchSignUp } from "../actions/actionsSignUp";
 import { connect, useSelector } from "react-redux";
 // import PropTypes from "prop-types";
 import jwtDecode from "jwt-decode";
 import { Redirect } from "react-router-dom";
+import { fetchGetAccount } from "../actions/actionsAccounts";
 
-export default function Main() {
+function Main() {
   const auth = useSelector((state) => state);
   console.log(auth);
   const user = jwtDecode(auth.allStocks.token);
-  console.log(user)
-  console.log(user)
-  console.log(user)
-  console.log(user)
-  // const onSubmit = (data) => {
-  //   console.log(data);
-  //   fetchSignUp(data);
-  // };
+  useEffect(() => {
+    fetchGetAccount(auth.allStocks.token);
+  }, []);
 
-  // if (auth.token) return <Redirect to="/" />;
+  const already_has_account = auth.allAccounts.filter(
+    (account) => account.created_by === user.user_id
+  );
+
+  console.log(auth.allAccounts);
+  console.log(already_has_account);
 
   return (
     <div>
@@ -29,12 +30,17 @@ export default function Main() {
   );
 }
 
-// const mapDispatchToProps = (dispatch) => ({
-//   fetchSignUp: (data) => dispatch(fetchSignUp(data)),
-// });
+
+const mapStateToProps = (state) => ({
+  allAccounts: state,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchGetAccount: (token) => dispatch(fetchGetAccount(token)),
+});
 
 // Sign_Up.propTypes = {
 //   fetchSignUp: PropTypes.func.isRequired,
 // };
 
-// export default connect(null, mapDispatchToProps)(Sign_Up);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

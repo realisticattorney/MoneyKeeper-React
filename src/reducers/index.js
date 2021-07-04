@@ -3,11 +3,11 @@ import { combineReducers, applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import stocksRed from "./reducer";
-import selStockRed from "./itemReducer";
+import getAccounts from "./accountsReducer";
 
 export const rootReducer = combineReducers({
   allStocks: stocksRed,
-  selectedStock: selStockRed,
+  allAccounts: getAccounts,
 });
 const store = createStore(
   rootReducer,
