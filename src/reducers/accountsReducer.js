@@ -16,14 +16,12 @@ const getAccountsReducer = (state = initialState, action) => {
     case "FETCH_GET_ACCOUNT_REQUEST":
       return {
         ...state,
-        loading: false,
-        stocks: action.payload,
+        loading: true,
       };
     case "FETCH_GET_ACCOUNT_FAILURE":
       return {
         ...state,
         loading: false,
-        stocks: action.error,
       };
     default:
       return state;

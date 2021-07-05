@@ -6,7 +6,7 @@ import stocksRed from "./reducer";
 import selStockRed from "./itemReducer";
 
 export const rootReducer = combineReducers({
-  allStocks: stocksRed,
+  userInfo: stocksRed,
   selectedStock: selStockRed,
 });
 const store = createStore(

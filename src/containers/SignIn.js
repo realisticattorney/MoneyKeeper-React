@@ -8,7 +8,7 @@ import { Redirect } from "react-router-dom";
 
 function SignIn({ fetchSignIn }) {
   const { register, handleSubmit } = useForm();
-  const auth = useSelector((state) => state.allStocks);
+  const auth = useSelector((state) => state.userInfo);
   console.log(auth);
   console.log(auth);
   console.log(auth);

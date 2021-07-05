@@ -5,19 +5,19 @@ import { fetchStocks } from "../actions/actions";
 import Stock from "../components/Stock";
 import CategoryFilter from "../components/CategoryFilter";
 
-const StocksContainer = ({ allStocks, fetchStocks }) => {
-  const sector = useSelector((state) => state.allStocks.sectorURL);
+const StocksContainer = ({ userInfo, fetchStocks }) => {
+  const sector = useSelector((state) => state.userInfo.sectorURL);
 
   useEffect(() => {
     fetchStocks(sector);
   }, [sector]);
 
   const renderStocks = () => {
-    if (allStocks.loading) {
+    if (userInfo.loading) {
       return <h1>Loading</h1>;
     }
 
-    return allStocks.stocks.map((stock) => {
+    return userInfo.stocks.map((stock) => {
       const id = Math.floor(Math.random() * 100000);
       return <Stock key={id} stock={stock} lol={id} />;
     });
@@ -41,7 +41,7 @@ const StocksContainer = ({ allStocks, fetchStocks }) => {
 };
 
 const mapStateToProps = (state) => ({
-  allStocks: state.allStocks,
+  userInfo: state.userInfo,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -49,7 +49,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 StocksContainer.propTypes = {
-  allStocks: PropTypes.shape({
+  userInfo: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
     stocks: PropTypes.instanceOf(Array).isRequired,
     error: PropTypes.string,
@@ -58,7 +58,7 @@ StocksContainer.propTypes = {
 };
 
 StocksContainer.defaultProps = {
-  allStocks: {
+  userInfo: {
     stocks: [],
     loading: false,
   },

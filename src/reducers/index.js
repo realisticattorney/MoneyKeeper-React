@@ -7,7 +7,7 @@ import getAccounts from "./accountsReducer";
 import postAccount from "./postAccountReducer";
 
 export const rootReducer = combineReducers({
-  allStocks: stocksRed,
+  userInfo: stocksRed,
   allAccounts: getAccounts,
   userAccount: postAccount,
 });

@@ -1,12 +1,12 @@
 /* eslint-disable */
 import React from "react";
 // import { Container } from "react-bootstrap";
-import Sign_up from "../containers/Sign_up";
+import AccountCreator from "../containers/AccountCreator";
 
 function App() {
   return (
     <>
-      <Sign_up />
+      <AccountCreator />
     </>
   );
 }

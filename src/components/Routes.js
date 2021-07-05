@@ -7,6 +7,7 @@ import App from '../pages/App'
 import SignUp from '../pages/SignUp'
 import Login from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
+import AccountCreator from "../pages/AccountCreator";
 
 function Routes() {
   return (
@@ -17,6 +18,7 @@ function Routes() {
           <Route path="/sign_up" component={SignUp} />
           <Route path="/sign_in" component={Login} />
           <Route path="/main" component={Dashboard} />
+          <Route path="/accountCreator" component={AccountCreator} />
           <Route
             exact
             path="/logout"

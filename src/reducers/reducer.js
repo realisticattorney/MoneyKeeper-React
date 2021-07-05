@@ -2,39 +2,37 @@
 import jwtDecode from 'jwt-decode'
 
 const initialState = {
+  loading: false,
   token: localStorage.getItem("token"),
   name: localStorage.getItem("name"),
   email: localStorage.getItem("email"),
-  exp: null,
-  _id: null,
 };
 
 const stocksReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_STOCKS_SUCCESS":
-      const user = jwtDecode(action.payload.token)
-      console.log(user)
-      console.log(user)
-      console.log(user)
+    case "FETCH_SIGNUP_SUCCESS":
+      // const user = jwtDecode(action.payload.token)
+      // console.log(user)
+      // console.log(user)
+      // console.log(user)
       return {
         ...state,
-        token: action.payload.token,
-        name: action.payload.user.name,
-        email: action.payload.user.email,
-        exp: user.exp,
-        _id: user.user_id,
+        loading: true,
+        user: {
+          token: action.payload.token,
+          name: action.payload.user.name,
+          email: action.payload.user.email,
+        },
       };
-    case "FETCH_STOCKS_REQUEST":
+    case "FETCH_SIGNUP_REQUEST":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "FETCH_SIGNUP_FAILURE":
       return {
         ...state,
         loading: false,
-        stocks: action.payload,
-      };
-    case "FETCH_STOCKS_FAILURE":
-      return {
-        ...state,
-        loading: false,
-        stocks: action.error,
       };
     default:
       return state;
