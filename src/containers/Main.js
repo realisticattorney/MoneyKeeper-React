@@ -15,6 +15,11 @@ export default function Main() {
   console.log("user_id from jwt decoded");
   console.log(user);
   console.log("user_id from jwt decoded");
+
+  useEffect(() => {
+    fetchGetAccount(auth.userInfo.token);
+  }, []);
+
   // useEffect(() => {
   //   fetchGetAccount(auth.userInfo.user.token);
   // const userAcc = auth.allAccounts.filter(acc => acc.data.id == user.user_id)

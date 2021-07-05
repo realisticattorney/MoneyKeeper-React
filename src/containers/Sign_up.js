@@ -23,7 +23,7 @@ function Sign_Up({ fetchSignUp }) {
     fetchSignUp(data);
   };
 
-  return auth.userInfo.loading ? (
+  return (auth.userInfo.loading && (auth.userInfo.token == "")) ? (
     <h2 className="text-center pt-5">
       <p>Loading...</p>
     </h2>

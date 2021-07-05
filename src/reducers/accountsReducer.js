@@ -5,6 +5,7 @@ const initialState = [];
 const getAccountsReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_GET_ACCOUNT_SUCCESS":
+      console.log("GET SUCEEEEEEES")
       console.log(action.payload.data)
       console.log("GET SUCEEEEEEES")
       return {

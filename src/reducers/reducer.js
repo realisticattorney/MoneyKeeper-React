@@ -18,11 +18,9 @@ const stocksReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        user: {
-          token: action.payload.token,
-          name: action.payload.user.name,
-          email: action.payload.user.email,
-        },
+        token: action.payload.token,
+        name: action.payload.user.name,
+        email: action.payload.user.email,
       };
     case "FETCH_SIGNUP_REQUEST":
       return {

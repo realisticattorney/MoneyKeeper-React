@@ -21,7 +21,9 @@ export const fetchGetAccount = (token) => (dispatch) => {
     headers: { Authorization: AuthStr },
   })
     .then((response) => {
-      console.log("FETCH GET SUCCESS " + response);
+      console.log("FETCH GET SUCCESS ")
+      console.log(response)
+      console.log("FETCH GET SUCCESS ")
       dispatch(getAccountsSuccess(response));
     })
     .catch((error) => {
