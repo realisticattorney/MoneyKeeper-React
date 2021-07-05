@@ -4,10 +4,12 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import stocksRed from "./reducer";
 import getAccounts from "./accountsReducer";
+import postAccount from "./postAccountReducer";
 
 export const rootReducer = combineReducers({
   allStocks: stocksRed,
   allAccounts: getAccounts,
+  userAccount: postAccount,
 });
 const store = createStore(
   rootReducer,

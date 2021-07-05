@@ -1,32 +1,31 @@
 /* eslint-disable */
 import Axios from "axios";
 const url = "https://degrassi-poppy-80494.herokuapp.com/";
-export const getUsersRequest = () => ({
+export const getAccountsRequest = () => ({
   type: "FETCH_GET_ACCOUNT_REQUEST",
 });
 
-export const getUsersSuccess = (accounts) => ({
+export const getAccountsSuccess = (accounts) => ({
   type: "FETCH_GET_ACCOUNT_SUCCESS",
   payload: accounts,
 });
-export const getUsersFailure = (error) => ({
+export const getAccountsFailure = (error) => ({
   type: "FETCH_GET_ACCOUNT_FAILURE",
   payload: error,
 });
 
 export const fetchGetAccount = (token) => (dispatch) => {
-  dispatch(getUsersRequest());
+  const AuthStr = "Bearer ".concat(token); 
+  dispatch(getAccountsRequest());
   Axios.get("https://degrassi-poppy-80494.herokuapp.com/accounts", {
-    headers: {
-      Authorization: "Bearer " + token,
-    },
+    headers: { Authorization: AuthStr },
   })
     .then((response) => {
-      console.log("getAccounts:" `${response}`);
-      dispatch(getUsersSuccess(response));
+      console.log("FETCH GET SUCCESS " + response);
+      dispatch(getAccountsSuccess(response));
     })
     .catch((error) => {
       console.log(error);
-      dispatch(getUsersFailure(error.message));
+      dispatch(getAccountsFailure(error.message));
     });
 };
