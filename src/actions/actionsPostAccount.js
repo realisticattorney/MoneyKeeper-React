@@ -15,14 +15,14 @@ export const postAccountFailure = (error) => ({
 });
 
 export const fetchPostAccount = (token) => (dispatch) => {
-  const AuthStr = "Bearer ".concat(token);
   dispatch(postAccountRequest());
-  Axios.post("https://degrassi-poppy-80494.herokuapp.com/accounts", {
-    headers: { Authorization: AuthStr },
+  Axios.post("https://degrassi-poppy-80494.herokuapp.com/accounts", null, {
+    headers: { "Authorization": `Bearer ${token}` },
   })
     .then((response) => {
-      console.log('POST FETCH SUCCEss');
+      console.log("FETCH POST WORKS")
       console.log(response);
+      console.log("FETCH POST WORKS")
       dispatch(postAccountSuccess(response));
     })
     .catch((error) => {

@@ -20,13 +20,13 @@ function Main({ fetchGetAccount, fetchPostAccount }) {
   // const already_has_account = auth.allAccounts.filter(
   //   (account) => account.created_by === user.user_id
   // );
-
-
+  console.log('lel')
   console.log(auth.allAccounts);
-  console.log("up down auth");
-  console.log(auth.allAccounts);
+  console.log('lel')
   // console.log(already_has_account);
-
+  // if (already_has_account == []) {
+  //   fetchPostAccount(auth.allStocks.token);
+  // }
 
   return (
     <div>
