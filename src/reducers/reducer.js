@@ -11,10 +11,7 @@ const initialState = {
 const stocksReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_SIGNUP_SUCCESS":
-      // const user = jwtDecode(action.payload.token)
-      // console.log(user)
-      // console.log(user)
-      // console.log(user)
+    case "FETCH_LOGIN_SUCCESS":
       return {
         ...state,
         loading: true,
@@ -23,11 +20,13 @@ const stocksReducer = (state = initialState, action) => {
         email: action.payload.user.email,
       };
     case "FETCH_SIGNUP_REQUEST":
+    case "FETCH_LOGIN_REQUEST":
       return {
         ...state,
         loading: true,
       };
     case "FETCH_SIGNUP_FAILURE":
+    case "FETCH_LOGIN_FAILURE":
       return {
         ...state,
         loading: false,

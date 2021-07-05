@@ -16,12 +16,11 @@ export const loginFailure = (error) => ({
 
 export const fetchSignIn = (user) => (dispatch) => {
   dispatch(loginRequest());
-  Axios.post(
-    "https://degrassi-poppy-80494.herokuapp.com/signup",
-    user
+  Axios.post("https://degrassi-poppy-80494.herokuapp.com/auth/login", 
+  user, 
   )
     .then((response) => {
-      console.log(response);
+      console.log(response)
       const { data } = response;
       localStorage.setItem("token", data.auth_token);
       console.log(data.auth_token);
