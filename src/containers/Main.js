@@ -38,7 +38,7 @@ export default function Main() {
   return (
     <div>
       <h1>welcome to MAIN ser!</h1>
-      <p>Account nro {auth.userAccount._id}</p>
+      <p>Account nro {auth.userAccount.account_id}</p>
       <p>User nro {auth.userAccount.created_by}</p>
          <a href={`/new_form/`}>New Item</a>
     </div>

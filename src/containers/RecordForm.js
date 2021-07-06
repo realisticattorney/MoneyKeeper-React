@@ -10,12 +10,10 @@ function Record({ fetchPostRecord }) {
   const { register, handleSubmit } = useForm();
   const auth = useSelector((state) => state);
   console.log("auth.userInfo from record");
-  const account_id = auth.userAccount.id;
-  console.log(account_id)
   
   const onSubmit = (data) => {
     console.log(data);
-    fetchPostRecord(account_id, data);
+    fetchPostRecord(data);
     return <Redirect to="/main" />;
   };
 

@@ -14,11 +14,18 @@ export const postRecordFailure = (error) => ({
   payload: error,
 });
 
-export const fetchPostRecord = (created_by, data) => (dispatch) => {
+export const fetchPostRecord = (data) => (dispatch) => {
+  const account_id = localStorage.getItem("account_id")
+  console.log("DATA")
+  console.log(data)
+  console.log("DATA")
+  console.log("account_id")
+  console.log(account_id)
+  console.log("account_id")
   const token = localStorage.getItem("token")
   dispatch(postRecordRequest());
   Axios.post(
-    `https://degrassi-poppy-80494.herokuapp.com/accounts/${created_by}/records`,
+    `https://degrassi-poppy-80494.herokuapp.com/accounts/${account_id}/records`,
     data,
     {
       headers: { Authorization: `Bearer ${token}` },

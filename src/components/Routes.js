@@ -28,6 +28,9 @@ function Routes() {
               localStorage.setItem("token", undefined);
               localStorage.setItem("name", "");
               localStorage.setItem("email", "");
+              localStorage.setItem("account_id", "");
+              localStorage.setItem("created_by", "");
+              localStorage.setItem("created_at", "");
               window.location.href = "/";
             }}
           />
