@@ -1,19 +1,20 @@
 /* eslint-disable */
-const initialState = {};
+const initialState = {
+  user_records: localStorage.getItem("userRecords")}
+;
 
 const postRecordReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_POST_RECORD_SUCCESS":
       console.log(action.payload);
       console.log("RECORD POST SUCESSSSS");
+      let existing = localStorage.getItem('userRecords');
+      existing = existing ? existing.split(",") : [];
+      existing.push(action.payload.data);
+      localStorage.setItem("userRecords", existing.toString());
       return {
-        ...state,
-        flow_direction: action.payload.data.flow_direction,
-        frequency: action.payload.data.frequency,
-        time_span: action.payload.data.time_span,
-        pending: action.payload.data.pending,
-        category: action.payload.data.category,
-        description: action.payload.data.description,
+        ...state.userRecords,
+        user_records: [action.payload.data],
       };
     case "FETCH_POST_RECORD_REQUEST":
       return {

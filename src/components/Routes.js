@@ -31,6 +31,7 @@ function Routes() {
               localStorage.setItem("account_id", "");
               localStorage.setItem("created_by", "");
               localStorage.setItem("created_at", "");
+              localStorage.setItem("user_records", []);
               window.location.href = "/";
             }}
           />
