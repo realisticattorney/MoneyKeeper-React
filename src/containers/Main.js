@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { connect, useSelector } from "react-redux";
 // import PropTypes from "prop-types";
 import jwtDecode from "jwt-decode";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { fetchGetAccount } from "../actions/actionsAccounts";
 import { fetchPostAccount } from "../actions/actionsPostAccount";
 
@@ -17,7 +17,7 @@ export default function Main() {
   console.log("user_id from jwt decoded");
 
   useEffect(() => {
-    fetchGetAccount(auth.userInfo.token);
+    // fetchGetAccount(auth.userInfo.token);
   }, []);
 
   // useEffect(() => {
@@ -38,7 +38,9 @@ export default function Main() {
   return (
     <div>
       <h1>welcome to MAIN ser!</h1>
-      <p>{auth.userInfo.token}</p>
+      <p>Account nro {auth.userAccount._id}</p>
+      <p>User nro {auth.userAccount.created_by}</p>
+         <a href={`/new_form/`}>New Item</a>
     </div>
   );
 }
