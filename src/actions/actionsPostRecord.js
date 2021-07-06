@@ -1,6 +1,5 @@
 /* eslint-disable */
 import Axios from "axios";
-const url = "https://degrassi-poppy-80494.herokuapp.com/";
 export const postRecordRequest = () => ({
   type: "FETCH_POST_RECORD_REQUEST",
 });

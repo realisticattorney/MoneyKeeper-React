@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { fetchStocks } from "../actions/actions";
-import Stock from "../components/Stock";
+import Stock from "../components/Record";
 import CategoryFilter from "../components/CategoryFilter";
 
 const StocksContainer = ({ userInfo, fetchStocks }) => {

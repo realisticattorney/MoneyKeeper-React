@@ -2,60 +2,66 @@
 import React, { useEffect, useState } from "react";
 // import { fetchSignUp } from "../actions/actionsSignUp";
 import { connect, useSelector } from "react-redux";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import jwtDecode from "jwt-decode";
 import { Redirect, Link } from "react-router-dom";
-import { fetchGetAccount } from "../actions/actionsAccounts";
-import { fetchPostAccount } from "../actions/actionsPostAccount";
+import { fetchGetRecords } from "../actions/actionsRecords";
+import Record from '../components/Record'
 
-export default function Main() {
+function Main({ fetchGetRecords}) {
   const auth = useSelector((state) => state);
   console.log(auth);
   const user = jwtDecode(auth.userInfo.token);
   console.log("user_id from jwt decoded");
   console.log(user);
   console.log("user_id from jwt decoded");
+  const account_id = auth.userAccount.account_id;
+  console.log(account_id);
 
   useEffect(() => {
-    // fetchGetAccount(auth.userInfo.token);
+    fetchGetRecords(account_id);
   }, []);
 
-  // useEffect(() => {
-  //   fetchGetAccount(auth.userInfo.user.token);
-  // const userAcc = auth.allAccounts.filter(acc => acc.data.id == user.user_id)
-  // console.log("userAccc")
-  // console.log(userAcc)
-  // console.log("userAccc")
-  //   if (Object.keys(userAcc).length == 0) {
-  //     fetchPostAccount(auth.userInfo.user.token);
-  //   }
-  // }, []);
+  console.log("userGetRecords (main)");
+  console.log(auth.userGetRecords);
+  console.log("userGetRecords (main)");
 
-  console.log("all accounts (redux)");
-  console.log(auth.allAccounts);
-  console.log("all accounts (redux)");
+  if(auth.userAccount.created_by == "undefined" || auth.userAccount.created_by == undefined) {
+   return <Redirect to="/" />;
+  }
 
-  return (
-    <div>
-      <h1>welcome to MAIN ser!</h1>
-      <p>Account nro {auth.userAccount.account_id}</p>
-      <p>User nro {auth.userAccount.created_by}</p>
-         <a href={`/new_form/`}>New Item</a>
-    </div>
-  );
+
+    const renderRecords = () => {
+      if (auth.userGetRecords.records ) {
+        return auth.userGetRecords.records.map((record) => {
+          const id = Math.floor(Math.random() * 100000);
+          return <Record key={id} record={record} />;
+        });
+      }
+      else {
+        return <p>lalala</p>
+      }
+    };
+
+return (
+  <div>
+    <div className="books-cms">{renderRecords()}</div>
+    <p>ser add new item ser</p>
+    <a href={`/new_form/`}>New Item</a>
+  </div>
+);
 }
 
-// const mapStateToProps = (state) => ({
-//   allAccounts: state,
-// });
+const mapStateToProps = (state) => ({
+  userGetRecords: state,
+});
 
-// const mapDispatchToProps = (dispatch) => ({
-//   fetchGetAccount: (token) => dispatch(fetchGetAccount(token)),
-//   fetchPostAccount: (token) => dispatch(fetchPostAccount(token)),
-// });
+const mapDispatchToProps = (dispatch) => ({
+  fetchGetRecords: (token) => dispatch(fetchGetRecords(token)),
+});
 
-// Sign_Up.propTypes = {
-//   fetchSignUp: PropTypes.func.isRequired,
-// };
+Main.propTypes = {
+  fetchGetRecords: PropTypes.func.isRequired,
+};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

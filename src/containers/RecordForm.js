@@ -20,6 +20,13 @@ function Record({ fetchPostRecord }) {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
+        <input
+          {...register("amount", {
+            required: true,
+          })}
+          placeholder="Quantity"
+        />
+
         <select {...register("flow_direction")}>
           <option value="income">income</option>
           <option value="expenditure">expenditure</option>
@@ -45,7 +52,7 @@ function Record({ fetchPostRecord }) {
             minLength: 6,
             maxLength: 20,
           })}
-          placeholder="Name"
+          placeholder="Category"
         />
 
         <input
@@ -54,7 +61,7 @@ function Record({ fetchPostRecord }) {
             minLength: 3,
             maxLength: 50,
           })}
-          placeholder="Name"
+          placeholder="Description"
         />
 
         <input type="submit" />

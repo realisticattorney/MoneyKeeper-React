@@ -6,12 +6,14 @@ import stocksRed from "./reducer";
 import getAccounts from "./accountsReducer";
 import postAccount from "./postAccountReducer";
 import postRecord from "./postRecordReducer";
+import getRecord from "./recordsReducer";
 
 export const rootReducer = combineReducers({
   userInfo: stocksRed,
   allAccounts: getAccounts,
   userAccount: postAccount,
   userRecords: postRecord,
+  userGetRecords: getRecord,
 });
 const store = createStore(
   rootReducer,
