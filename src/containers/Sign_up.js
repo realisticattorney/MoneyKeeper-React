@@ -23,10 +23,10 @@ function Sign_Up({ fetchSignUp }) {
     fetchSignUp(data);
   };
 
-  return auth.userInfo.loading && auth.userInfo.token == "" ? (
-    <h2 className="text-center pt-5">
-      <p>Loading...</p>
-    </h2>
+  return auth.userInfo.loading && 
+  auth.userInfo.token == "undefined" 
+  ? (
+    <div class="loading">Loading&#8230;</div>
   ) : auth.userInfo.token == "undefined" || auth.userInfo.token == undefined ? (
     <div className="signup">
       <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
@@ -58,7 +58,9 @@ function Sign_Up({ fetchSignUp }) {
           })}
           placeholder="Password confirmation"
         />
-        <button className="form-button" type="submit">Register</button>
+        <button className="form-button" type="submit">
+          Register
+        </button>
       </form>
       <Link className="nav-link" to="/">
         <span className="btn-menu">Back</span>
