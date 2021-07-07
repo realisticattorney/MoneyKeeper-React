@@ -19,7 +19,11 @@ function Routes() {
           <Route path="/" exact component={App} />
           <Route path="/sign_up" component={SignUp} />
           <Route path="/sign_in" component={Login} />
-          <Route path="/main" component={Dashboard} />
+          <Route path="/main" component={Dashboard} 
+          render={() => {
+              localStorage.setItem("posted", false);
+          }}
+          />
           <Route path="/accountCreator" component={AccountCreator} />
           <Route path="/new_form" component={RecordForm} />
           <Route path="/accounts/:account_id/records/:id" component={RecordDetails} />

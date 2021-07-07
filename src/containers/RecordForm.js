@@ -20,10 +20,14 @@ function Record({ fetchPostRecord }) {
       data.pending = "yes"
     }
     fetchPostRecord(data);
+    localStorage.setItem("getRecords", true);
+    localStorage.setItem("posted", "true");
     return <Redirect to="/main" />;
   };
 
-  return auth.userRecords.user_records[0].id == undefined ? (
+  return localStorage.getItem("posted") == "true" ? (
+    <Redirect to="/main" />
+  ) : (
     <div className="signup">
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -34,7 +38,7 @@ function Record({ fetchPostRecord }) {
           name="pending"
         />
         <input
-        type="number"
+          type="number"
           {...register("amount", {
             required: true,
           })}
@@ -84,8 +88,6 @@ function Record({ fetchPostRecord }) {
         <span className="btn-menu">Back</span>
       </Link>
     </div>
-  ) : (
-    <Redirect to="/main" />
   );
 }
 

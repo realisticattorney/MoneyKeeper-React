@@ -17,9 +17,14 @@ function Main({ fetchGetRecords}) {
   console.log("user_id from jwt decoded");
   const account_id = auth.userAccount.account_id;
   console.log(account_id);
-
+  const getRecords = localStorage.getItem
+  ("getRecords");
+  localStorage.setItem("posted", false);
   useEffect(() => {
-    fetchGetRecords(account_id);
+    if (auth.userGetRecords.records == undefined || getRecords) {
+      fetchGetRecords(account_id);
+      localStorage.setItem("getRecords", false);
+    }
   }, []);
 
   console.log("userGetRecords (main)");
@@ -42,11 +47,11 @@ function Main({ fetchGetRecords}) {
 
 return (
   <>
-  <div className="main-grid">
-    <a className="main-post-record" href={`/new_form/`}>
-      +
-    </a>
-  </div>
+    <div className="main-grid">
+      <Link className="main-post-record" to={`/new_form/`}>
+        +
+      </Link>
+    </div>
     <div className="main-records">{renderRecords()}</div>
   </>
 );
