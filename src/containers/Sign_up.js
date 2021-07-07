@@ -23,13 +23,13 @@ function Sign_Up({ fetchSignUp }) {
     fetchSignUp(data);
   };
 
-  return (auth.userInfo.loading && (auth.userInfo.token == "")) ? (
+  return auth.userInfo.loading && auth.userInfo.token == "" ? (
     <h2 className="text-center pt-5">
       <p>Loading...</p>
     </h2>
   ) : auth.userInfo.token == "undefined" || auth.userInfo.token == undefined ? (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="signup">
+      <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("name", {
             required: true,
@@ -58,12 +58,12 @@ function Sign_Up({ fetchSignUp }) {
           })}
           placeholder="Password confirmation"
         />
-        <input type="submit" />
+        <button className="form-button" type="submit">Register</button>
       </form>
       <Link className="nav-link" to="/">
         <span className="btn-menu">Back</span>
       </Link>
-    </>
+    </div>
   ) : (
     <Redirect to="/accountCreator" />
   );

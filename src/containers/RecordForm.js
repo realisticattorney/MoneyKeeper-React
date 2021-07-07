@@ -18,38 +18,42 @@ function Record({ fetchPostRecord }) {
   };
 
   return (
-    <>
+    <div className="signup">
       <form onSubmit={handleSubmit(onSubmit)}>
+        <input
+          {...register("pending")}
+          id="record-checkbox"
+          value="no"
+          type="checkbox"
+        />
         <input
           {...register("amount", {
             required: true,
           })}
-          placeholder="Quantity"
+          placeholder="Quantity ($)"
         />
 
         <select {...register("flow_direction")}>
-          <option value="income">income</option>
-          <option value="expenditure">expenditure</option>
+          <option value="income">Income (+)</option>
+          <option value="expenditure">Expenditure (-)</option>
         </select>
 
         <select {...register("frequency")}>
-          <option value="once">once</option>
-          <option value="regularly">regularly</option>
+          <option value="once">Once</option>
+          <option value="regularly">Regularly</option>
         </select>
 
         <select {...register("time_span")}>
-          <option value="daily">daily</option>
-          <option value="weekly">weekly</option>
-          <option value="bi-weekly">bi-weekly</option>
-          <option value="monthly">monthly</option>
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="bi-weekly">Bi-Weekly</option>
+          <option value="monthly">Monthly</option>
         </select>
-
-        <input {...register("pending")} value="yes" type="checkbox" />
 
         <input
           {...register("category", {
             required: true,
-            minLength: 6,
+            minLength: 0,
             maxLength: 20,
           })}
           placeholder="Category"
@@ -58,18 +62,20 @@ function Record({ fetchPostRecord }) {
         <input
           {...register("description", {
             required: true,
-            minLength: 3,
+            minLength: 0,
             maxLength: 50,
           })}
           placeholder="Description"
         />
 
-        <input type="submit" />
+        <button className="form-button" type="submit">
+          ADD ITEM
+        </button>
       </form>
       <Link className="nav-link" to="/main">
         <span className="btn-menu">Back</span>
       </Link>
-    </>
+    </div>
   );
 }
 

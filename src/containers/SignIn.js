@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { fetchSignIn } from "../actions/actionsSignIn";
 import { connect, useSelector } from "react-redux";
 import PropTypes from "prop-types";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 function SignIn({ fetchSignIn }) {
   const { register, handleSubmit } = useForm();
@@ -23,12 +23,12 @@ function SignIn({ fetchSignIn }) {
     fetchSignUp(data);
   };
 
-  return (auth.userInfo.loading && (auth.userInfo.token == "")) ? (
+  return auth.userInfo.loading && auth.userInfo.token == "" ? (
     <h2 className="text-center pt-5">
       <p>Loading...</p>
     </h2>
   ) : auth.userInfo.token == "undefined" || auth.userInfo.token == undefined ? (
-    <>
+    <div className="signup">
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("name", {
@@ -58,14 +58,16 @@ function SignIn({ fetchSignIn }) {
           })}
           placeholder="Password confirmation"
         />
-        <input type="submit" />
+        <button className="form-button" type="submit">
+          Login
+        </button>
       </form>
       <Link className="nav-link" to="/">
         <span className="btn-menu">Back</span>
       </Link>
-    </>
+    </div>
   ) : (
-        <Redirect to="/main" />
+    <Redirect to="/main" />
   );
 }
 

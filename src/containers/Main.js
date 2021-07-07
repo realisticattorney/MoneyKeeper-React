@@ -38,17 +38,17 @@ function Main({ fetchGetRecords}) {
           return <Record key={id} record={record} />;
         });
       }
-      else {
-        return <p>lalala</p>
-      }
     };
 
 return (
-  <div>
-    <div className="books-cms">{renderRecords()}</div>
-    <p>ser add new item ser</p>
-    <a href={`/new_form/`}>New Item</a>
+  <>
+  <div className="main-grid">
+    <a className="main-post-record" href={`/new_form/`}>
+      +
+    </a>
   </div>
+    <div className="main-records">{renderRecords()}</div>
+  </>
 );
 }
 
