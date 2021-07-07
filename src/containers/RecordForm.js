@@ -13,11 +13,17 @@ function Record({ fetchPostRecord }) {
   
   const onSubmit = (data) => {
     console.log(data);
+    console.log(data);
+    console.log(data);
+    console.log(data);
+    if (data.pending == false) {
+      data.pending = "yes"
+    }
     fetchPostRecord(data);
     return <Redirect to="/main" />;
   };
 
-  return (
+  return auth.userRecords.user_records[0].id == undefined ? (
     <div className="signup">
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -25,8 +31,10 @@ function Record({ fetchPostRecord }) {
           id="record-checkbox"
           value="no"
           type="checkbox"
+          name="pending"
         />
         <input
+        type="number"
           {...register("amount", {
             required: true,
           })}
@@ -76,6 +84,8 @@ function Record({ fetchPostRecord }) {
         <span className="btn-menu">Back</span>
       </Link>
     </div>
+  ) : (
+    <Redirect to="/main" />
   );
 }
 
