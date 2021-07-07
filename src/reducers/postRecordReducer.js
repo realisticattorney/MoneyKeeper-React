@@ -8,7 +8,7 @@ const postRecordReducer = (state = initialState, action) => {
     case "FETCH_POST_RECORD_SUCCESS":
       console.log(action.payload);
       console.log("RECORD POST SUCESSSSS");
-      let existing = localStorage.getItem('userRecords');
+      let existing = localStorage.getItem("userRecords");
       existing = existing ? existing.split(",") : [];
       existing.push(action.payload.data);
       localStorage.setItem("userRecords", existing.toString());
@@ -26,6 +26,16 @@ const postRecordReducer = (state = initialState, action) => {
         ...state,
         loading: false,
       };
+    case "FETCH_DELETE_RECORD_SUCCESS":
+      console.log(action.payload)
+      console.log(action.payload)
+      console.log(action.payload)
+    return {
+      ...state.userGetRecords,
+      records: state.userGetRecords.records.filter(
+        (item) => item.id !== action.payload
+      ),
+    };
     default:
       return state;
   }

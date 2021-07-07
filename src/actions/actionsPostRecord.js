@@ -41,3 +41,32 @@ export const fetchPostRecord = (data) => (dispatch) => {
       dispatch(postRecordFailure(error.message));
     });
 };
+
+
+
+export const deleteRecordSuccess = (record) => ({
+  type: "FETCH_DELETE_RECORD_SUCCESS",
+  payload: record,
+});
+
+export const deleteRecord = (selectedRecord) => (dispatch) => {
+  const account_id = selectedRecord.account_id;
+  const token = localStorage.getItem("token");
+  const record_id = selectedRecord.id;
+
+  Axios.delete(
+    `https://degrassi-poppy-80494.herokuapp.com/accounts/${account_id}/records/${record_id}`,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    }
+  )
+    .then((response) => {
+      console.log("DELETE record");
+      console.log(response);
+      console.log("DELETE record");
+      dispatch(deleteRecordSuccess(record_id));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};

@@ -7,7 +7,7 @@ const userAcc = useSelector((state) => state);
 console.log(userAcc)
   return (
     <div>
-      {userAcc.userAccount.created_by == null ? (
+      {userAcc.userAccount.created_by == "" ? (
         <>
           {/* <p>Navbar when NOT signed</p>
           <Link to="/sign_in">SIGN IN</Link>

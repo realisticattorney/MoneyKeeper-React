@@ -12,16 +12,16 @@ function Main({ fetchGetRecords}) {
   const auth = useSelector((state) => state);
   console.log(auth);
   const user = jwtDecode(auth.userInfo.token);
-  console.log("user_id from jwt decoded");
-  console.log(user);
-  console.log("user_id from jwt decoded");
+  // console.log("user_id from jwt decoded");
+  // console.log(user);
+  // console.log("user_id from jwt decoded");
   const account_id = auth.userAccount.account_id;
-  console.log(account_id);
+  // console.log(account_id);
   const getRecords = localStorage.getItem
   ("getRecords");
   localStorage.setItem("posted", false);
   useEffect(() => {
-    if (auth.userGetRecords.records == undefined || getRecords) {
+    if (auth.userGetRecords.records == undefined || getRecords == "true") {
       fetchGetRecords(account_id);
       localStorage.setItem("getRecords", false);
     }
@@ -36,14 +36,14 @@ function Main({ fetchGetRecords}) {
   }
 
 
-    const renderRecords = () => {
-      if (auth.userGetRecords.records ) {
-        return auth.userGetRecords.records.map((record) => {
-          const id = Math.floor(Math.random() * 100000);
-          return <Record key={id} record={record} account_id={account_id} />;
-        });
-      }
-    };
+  const renderRecords = () => {
+    if (auth.userGetRecords.records ) {
+      return auth.userGetRecords.records.map((record) => {
+        const id = Math.floor(Math.random() * 100000);
+        return <Record key={id} record={record} account_id={account_id} />;
+      });
+    }
+  };
 
 return (
   <>

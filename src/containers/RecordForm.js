@@ -13,16 +13,12 @@ function Record({ fetchPostRecord }) {
   
   const onSubmit = (data) => {
     console.log(data);
-    console.log(data);
-    console.log(data);
-    console.log(data);
     if (data.pending == false) {
       data.pending = "yes"
     }
     fetchPostRecord(data);
-    localStorage.setItem("getRecords", true);
+    localStorage.setItem("getRecords", "true");
     localStorage.setItem("posted", "true");
-    return <Redirect to="/main" />;
   };
 
   return localStorage.getItem("posted") == "true" ? (
@@ -51,25 +47,16 @@ function Record({ fetchPostRecord }) {
         </select>
 
         <select {...register("frequency")}>
-          <option value="once">Once</option>
+          <option value="once">One time only</option>
           <option value="regularly">Regularly</option>
         </select>
-
-        <select {...register("time_span")}>
+        
+        {/* <select {...register("time_span")}>
           <option value="daily">Daily</option>
           <option value="weekly">Weekly</option>
           <option value="bi-weekly">Bi-Weekly</option>
           <option value="monthly">Monthly</option>
-        </select>
-
-        <input
-          {...register("category", {
-            required: true,
-            minLength: 0,
-            maxLength: 20,
-          })}
-          placeholder="Category"
-        />
+        </select> */}
 
         <input
           {...register("description", {
@@ -77,7 +64,15 @@ function Record({ fetchPostRecord }) {
             minLength: 0,
             maxLength: 50,
           })}
-          placeholder="Description"
+          placeholder="Label / Title"
+        />
+        <input
+          {...register("category", {
+            required: true,
+            minLength: 0,
+            maxLength: 20,
+          })}
+          placeholder="Category"
         />
 
         <button className="form-button" type="submit">
