@@ -35,7 +35,7 @@ function Main({ fetchGetRecords}) {
       if (auth.userGetRecords.records ) {
         return auth.userGetRecords.records.map((record) => {
           const id = Math.floor(Math.random() * 100000);
-          return <Record key={id} record={record} />;
+          return <Record key={id} record={record} account_id={account_id} />;
         });
       }
     };

@@ -1,12 +1,13 @@
 /* eslint-disable */
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-function Record({ record }) {
-  const { amount, flow_direction, frequency, pending, category } = record;
+function Record({ record, account_id }) {
+  const { amount, flow_direction, frequency, pending, category, id } = record;
 
   return (
-    <a href={`/records/${flow_direction}`}>
+    <Link className="nav-link" to={`/accounts/${account_id}/records/${id}`} >
       <div className="book">
         <div className="left-side">
           <p className="category">{category}</p>
@@ -17,7 +18,7 @@ function Record({ record }) {
           <p className="title">{amount}</p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 
