@@ -8,6 +8,7 @@ import SignUp from '../pages/SignUp'
 import Login from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
 import AccountCreator from "../pages/AccountCreator";
+import AccountReader from "../pages/AccountReader";
 import RecordForm from "../containers/RecordForm";
 import RecordDetails from "../containers/RecordDetails";
 
@@ -25,6 +26,7 @@ function Routes() {
           }}
           />
           <Route path="/accountCreator" component={AccountCreator} />
+          <Route path="/accountReader" component={AccountReader} />
           <Route path="/new_form" component={RecordForm} />
           <Route path="/accounts/:account_id/records/:id" component={RecordDetails} />
           <Route

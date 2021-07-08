@@ -11,17 +11,26 @@ import Record from '../components/Record'
 function Main({ fetchGetRecords}) {
   const auth = useSelector((state) => state);
   console.log(auth);
+  const forceUpdate = React.useReducer(() => ({}))[1];
   const user = jwtDecode(auth.userInfo.token);
   // console.log("user_id from jwt decoded");
   // console.log(user);
   // console.log("user_id from jwt decoded");
   const account_id = auth.userAccount.account_id;
-  // console.log(account_id);
+  console.log(account_id);
+  console.log(account_id);
+  console.log(account_id);
+  console.log(account_id);
+  console.log(account_id);
+  console.log(account_id);
   const getRecords = localStorage.getItem
   ("getRecords");
   localStorage.setItem("posted", false);
   useEffect(() => {
     if (auth.userGetRecords.records == undefined || getRecords == "true") {
+      setTimeout(() => {
+        forceUpdate();
+      }, 100);
       fetchGetRecords(account_id);
       localStorage.setItem("getRecords", false);
     }

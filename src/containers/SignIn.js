@@ -6,7 +6,7 @@ import { connect, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { Redirect, Link } from "react-router-dom";
 
-function SignIn({ fetchSignIn }) {
+function Sign_In({ fetchSignIn }) {
   const { register, handleSubmit } = useForm();
   const auth = useSelector((state) => state);
   console.log("auth.userInfo from signUp");
@@ -20,16 +20,14 @@ function SignIn({ fetchSignIn }) {
   console.log("auth.userInfo token object keys");
   const onSubmit = (data) => {
     console.log(data);
-    fetchSignUp(data);
+    fetchSignIn(data);
   };
 
-  return auth.userInfo.loading && auth.userInfo.token == "" ? (
-    <h2 className="text-center pt-5">
-      <p>Loading...</p>
-    </h2>
+  return auth.userInfo.loading && auth.userInfo.token == "undefined" ? (
+    <div class="loading">Loading&#8230;</div>
   ) : auth.userInfo.token == "undefined" || auth.userInfo.token == undefined ? (
     <div className="signup">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("name", {
             required: true,
@@ -67,7 +65,7 @@ function SignIn({ fetchSignIn }) {
       </Link>
     </div>
   ) : (
-    <Redirect to="/main" />
+    <Redirect to="/accountReader" />
   );
 }
 
@@ -75,8 +73,8 @@ const mapDispatchToProps = (dispatch) => ({
   fetchSignIn: (data) => dispatch(fetchSignIn(data)),
 });
 
-SignIn.propTypes = {
+Sign_In.propTypes = {
   fetchSignIn: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(SignIn);
+export default connect(null, mapDispatchToProps)(Sign_In);

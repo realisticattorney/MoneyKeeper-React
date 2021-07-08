@@ -10,7 +10,7 @@ const getAccountsReducer = (state = initialState, action) => {
       console.log("GET SUCEEEEEEES")
       return {
         ...state,
-        _id: action.payload.data[0].id,
+        account_id: action.payload.data[0].id,
         created_by: action.payload.data[0].created_by,
         created_at: action.payload.data[0].created_at,
       };
