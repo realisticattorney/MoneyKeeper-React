@@ -1,7 +1,7 @@
-/* eslntdisable */
-import React from 'react';
-import NavBar from '../components/NavBar';
-import Main from '../containers/Main';
+/* eslint-disable */
+import React from "react";
+import NavBar from "../components/NavBar";
+import Main from "../containers/Main";
 
 function App() {
   return (

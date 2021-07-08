@@ -1,11 +1,12 @@
-/* eslntdisable */
-import React from 'react';
-import Sign_up from '../containers/Sign_up';
+/* eslint-disable */
+
+import React from "react";
+import SignUp from "../containers/SignUp";
 
 function App() {
   return (
     <>
-      <Sign_up />
+      <SignUp />
     </>
   );
 }

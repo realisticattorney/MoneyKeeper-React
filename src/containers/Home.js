@@ -1,13 +1,13 @@
-/* eslntdisable */
+/* eslint-disable */
 
-import React from 'react';
-import { connect, useSelector } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import React from "react";
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 const Home = () => {
-  const user_signed = useSelector((state) => state.userAccount.created_by);
+  const userSigned = useSelector((state) => state.userAccount.created_by);
 
-  if (user_signed != '') {
+  if (userSigned !== "") {
     return <Redirect to="/main" />;
   }
   return (
@@ -15,17 +15,13 @@ const Home = () => {
       <h3 className="home-nav">Welcome to</h3>
       <h1 className="home-title">Money Keeper</h1>
       <p className="home-pitch">
-        Keeping track
-        {' '}
-        <br />
-        {' '}
-        has never been easier
+        Keeping track <br /> has never been easier
       </p>
       <a className="home-cta-signup" href="/sign_up">
         CREATE ACCOUNT
       </a>
       <p className="home-pitch-two">
-        I've already signed in.
+        I&apos;ve already signed in.
         <a className="home-cta-login" href="/sign_in">
           <strong> Login</strong>
         </a>
