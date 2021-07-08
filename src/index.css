@@ -38,10 +38,13 @@ a {
   align-items: center;
   margin: 250px 20px;
   font-size: 30px;
+  padding-bottom: 20px;
+  border-radius: 0.6rem;
 }
 
 .det-top {
   background-color: #C8E9E2;
+  border-radius: 0.6rem;
 }
 
 .det-top-title {
@@ -368,13 +371,13 @@ section > label {
 }
 
 button[type="button"] {
-  padding: 5px;
-  background: #516391;
+  background-color: #F0797C;
   color: white;
   letter-spacing: 0px;
+  border-radius: 0.2rem;
+  border: none;
   text-transform: none;
-  padding: 10px;
-  letter-spacing: 2px;
+  padding: 4px 6px;
 }
 
 button[type="button"]:hover {
@@ -638,3 +641,4 @@ background-color: #327A6B;
     transform: rotate(360deg);
   }
 }
+

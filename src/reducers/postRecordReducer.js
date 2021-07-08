@@ -26,16 +26,6 @@ const postRecordReducer = (state = initialState, action) => {
         ...state,
         loading: false,
       };
-    case "FETCH_DELETE_RECORD_SUCCESS":
-      console.log(action.payload)
-      console.log(action.payload)
-      console.log(action.payload)
-    return {
-      ...state.userGetRecords,
-      records: state.userGetRecords.records.filter(
-        (item) => item.id !== action.payload
-      ),
-    };
     default:
       return state;
   }
