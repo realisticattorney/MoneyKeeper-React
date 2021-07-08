@@ -4,7 +4,7 @@ Money Keeper helps you keep track of your finances for free. It offers a persona
 
 ## Live demo
 
-[live demo](https://xyzfinance.herokuapp.com/)
+[live demo](https://moneykeeperreact.herokuapp.com/)
 
 ## Built With
 
@@ -17,7 +17,7 @@ Money Keeper helps you keep track of your finances for free. It offers a persona
 
 - Open your terminal and cd where you want to store the project
 - Run the following command - `git clone https://github.com/realisticattorney/MoneyKeeper-React`
-- Cd into the directory - `cd XYZ-Finance`
+- Cd into the directory - `cd MoneyKeeper-React`
 - Run `npm install` to install all dependencies
 - Run `npm start` or `yarn start`, this automatically open your browser and the app.
 
@@ -50,4 +50,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed."# XYZ-Finance"
+This project is [MIT](./MIT.md) licensed."# MoneyKeeper"
