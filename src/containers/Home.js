@@ -1,4 +1,4 @@
-/* eslint-diable */
+/* eslint-disable eqeqeq */
 
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -6,8 +6,8 @@ import { Redirect } from 'react-router-dom';
 
 const Home = () => {
   const userSigned = useSelector((state) => state.userAccount.created_by);
-
-  if (userSigned !== '') {
+  console.log(userSigned);
+  if (userSigned != '') {
     return <Redirect to="/main" />;
   }
   return (
