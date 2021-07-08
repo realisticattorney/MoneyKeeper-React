@@ -1,9 +1,8 @@
-import recordsReducer from "../reducers/recordsReducer";
+import recordsReducer from '../reducers/recordsReducer';
 
-describe("recordsReducer reducer", () => {
+describe('recordsReducer reducer', () => {
   const initialState = [];
-  test("should return the initial state", () => {
+  test('should return the initial state', () => {
     expect(recordsReducer(undefined, {})).toEqual(initialState);
   });
 });
-  

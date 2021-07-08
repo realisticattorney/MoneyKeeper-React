@@ -1,5 +1,5 @@
-import React from "react";
-import SignUp from "../containers/SignUp";
+import React from 'react';
+import SignUp from '../containers/SignUp';
 
 function App() {
   return (

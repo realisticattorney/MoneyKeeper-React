@@ -1,9 +1,8 @@
-import accountsReducer from "../reducers/accountsReducer";
+import accountsReducer from '../reducers/accountsReducer';
 
-describe("accountsReducer reducer", () => {
+describe('accountsReducer reducer', () => {
   const initialState = [];
-  test("should return the initial state", () => {
+  test('should return the initial state', () => {
     expect(accountsReducer(undefined, {})).toEqual(initialState);
   });
 });
-  

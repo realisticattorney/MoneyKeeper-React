@@ -1,13 +1,13 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import App from "../pages/App";
-import SignUp from "../pages/SignUp";
-import Login from "../pages/Login";
-import Dashboard from "../pages/Dashboard";
-import AccountCreator from "../pages/AccountCreator";
-import AccountReader from "../pages/AccountReader";
-import RecordForm from "../containers/RecordForm";
-import RecordDetails from "../containers/RecordDetails";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import App from '../pages/App';
+import SignUp from '../pages/SignUp';
+import Login from '../pages/Login';
+import Dashboard from '../pages/Dashboard';
+import AccountCreator from '../pages/AccountCreator';
+import AccountReader from '../pages/AccountReader';
+import RecordForm from '../containers/RecordForm';
+import RecordDetails from '../containers/RecordDetails';
 
 function Routes() {
   return (
@@ -21,7 +21,7 @@ function Routes() {
             path="/main"
             component={Dashboard}
             render={() => {
-              localStorage.setItem("posted", false);
+              localStorage.setItem('posted', false);
             }}
           />
           <Route path="/accountCreator" component={AccountCreator} />
@@ -35,14 +35,14 @@ function Routes() {
             exact
             path="/logout"
             render={() => {
-              localStorage.setItem("token", undefined);
-              localStorage.setItem("name", "");
-              localStorage.setItem("email", "");
-              localStorage.setItem("accountId", "");
-              localStorage.setItem("created_by", "");
-              localStorage.setItem("created_at", "");
-              localStorage.setItem("user_records", []);
-              window.location.href = "/";
+              localStorage.setItem('token', undefined);
+              localStorage.setItem('name', '');
+              localStorage.setItem('email', '');
+              localStorage.setItem('accountId', '');
+              localStorage.setItem('created_by', '');
+              localStorage.setItem('created_at', '');
+              localStorage.setItem('user_records', []);
+              window.location.href = '/';
             }}
           />
           <Route>404 Not Found!</Route>

@@ -1,14 +1,13 @@
-import signReducer from "../reducers/reducer";
+import signReducer from '../reducers/reducer';
 
-describe("signReducer reducer", () => {
+describe('signReducer reducer', () => {
   const initialState = {
-   "email": null,
-   "loading": false,
-   "name": null,
-   "token": null,
+    email: null,
+    loading: false,
+    name: null,
+    token: null,
   };
-  test("should return the initial state", () => {
+  test('should return the initial state', () => {
     expect(signReducer(undefined, {})).toEqual(initialState);
   });
 });
- 
