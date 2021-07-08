@@ -7,7 +7,7 @@ const initialState = {
   email: localStorage.getItem('email'),
 };
 
-const stocksReducer = (state = initialState, action) => {
+const signReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_SIGNUP_SUCCESS':
     case 'FETCH_LOGIN_SUCCESS':
@@ -35,4 +35,4 @@ const stocksReducer = (state = initialState, action) => {
   }
 };
 
-export default stocksReducer;
+export default signReducer;
