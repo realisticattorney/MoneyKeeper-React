@@ -1,19 +1,15 @@
-/* eslint-disable */
+/* eslint-diable */
 
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function Record({ record, accountId }) {
   const {
-    amount,
-    flowDirection,
-    frequency,
-    pending,
-    category,
-    id,
-    description,
+    amount, frequency, pending, category, id, description,
   } = record;
+
+  const flowDirection = record.flow_direction;
 
   return (
     <Link className="nav-link" to={`/accounts/${accountId}/records/${id}`}>
@@ -21,7 +17,7 @@ function Record({ record, accountId }) {
         <div className="left-side">
           <p className="category">{description}</p>
           <p className="author">{frequency.toUpperCase()}</p>
-          <p className={`${pending === "yes" ? "pending-yes" : "pending-no"}`}>
+          <p className={`${pending === 'yes' ? 'pending-yes' : 'pending-no'}`}>
             {pending.toUpperCase()}
           </p>
         </div>
@@ -30,7 +26,7 @@ function Record({ record, accountId }) {
             className="title"
             style={{
               backgroundColor:
-                flowDirection === "income" ? "#327A6B" : "#f0797c",
+                flowDirection === 'income' ? '#327A6B' : '#f0797c',
             }}
           >
             {amount}
@@ -46,6 +42,7 @@ Record.propTypes = {
   record: PropTypes.shape({
     amount: PropTypes.number.isRequired,
     flowDirection: PropTypes.string.isRequired,
+    flow_direction: PropTypes.string.isRequired,
     frequency: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     pending: PropTypes.string.isRequired,

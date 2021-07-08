@@ -1,35 +1,35 @@
-/* eslint-disable */
-import Axios from "axios";
+/* eslint-diable */
+import Axios from 'axios';
 
 export const getAccountsRequest = () => ({
-  type: "FETCH_GET_ACCOUNT_REQUEST",
+  type: 'FETCH_GET_ACCOUNT_REQUEST',
 });
 
 export const getAccountsSuccess = (accounts) => ({
-  type: "FETCH_GET_ACCOUNT_SUCCESS",
+  type: 'FETCH_GET_ACCOUNT_SUCCESS',
   payload: accounts,
 });
 export const getAccountsFailure = (error) => ({
-  type: "FETCH_GET_ACCOUNT_FAILURE",
+  type: 'FETCH_GET_ACCOUNT_FAILURE',
   payload: error,
 });
 
 export const getSetAccountsRequest = () => ({
-  type: "FETCH_GET_SET_ACCOUNT_REQUEST",
+  type: 'FETCH_GET_SET_ACCOUNT_REQUEST',
 });
 export const getSetAccountsSuccess = (accounts) => ({
-  type: "FETCH_GET_SET_ACCOUNT_SUCCESS",
+  type: 'FETCH_GET_SET_ACCOUNT_SUCCESS',
   payload: accounts,
 });
 export const getSetAccountsFailure = (error) => ({
-  type: "FETCH_GET_SET_ACCOUNT_FAILURE",
+  type: 'FETCH_GET_SET_ACCOUNT_FAILURE',
   payload: error,
 });
 
 export const fetchGetAccount = (token) => (dispatch) => {
-  const AuthStr = "Bearer ".concat(token);
+  const AuthStr = 'Bearer '.concat(token);
   dispatch(getAccountsRequest());
-  Axios.get("https://degrassi-poppy-80494.herokuapp.com/accounts", {
+  Axios.get('https://degrassi-poppy-80494.herokuapp.com/accounts', {
     headers: { Authorization: AuthStr },
   })
     .then((response) => {
@@ -41,9 +41,9 @@ export const fetchGetAccount = (token) => (dispatch) => {
 };
 
 export const fetchSetGetAccount = (token) => (dispatch) => {
-  const AuthStr = "Bearer ".concat(token);
+  const AuthStr = 'Bearer '.concat(token);
   // dispatch(getSetAccountsRequest());
-  Axios.get("https://degrassi-poppy-80494.herokuapp.com/accounts", {
+  Axios.get('https://degrassi-poppy-80494.herokuapp.com/accounts', {
     headers: { Authorization: AuthStr },
   })
     .then((response) => {

@@ -1,29 +1,29 @@
-/* eslint-disable */
-import Axios from "axios";
+/* eslint-diable */
+import Axios from 'axios';
 
 export const postRecordRequest = () => ({
-  type: "FETCH_POST_RECORD_REQUEST",
+  type: 'FETCH_POST_RECORD_REQUEST',
 });
 
 export const postRecordSuccess = (records) => ({
-  type: "FETCH_POST_RECORD_SUCCESS",
+  type: 'FETCH_POST_RECORD_SUCCESS',
   payload: records,
 });
 export const postRecordFailure = (error) => ({
-  type: "FETCH_POST_RECORD_FAILURE",
+  type: 'FETCH_POST_RECORD_FAILURE',
   payload: error,
 });
 
 export const fetchPostRecord = (data) => (dispatch) => {
-  const accountId = localStorage.getItem("accountId");
-  const token = localStorage.getItem("token");
+  const accountId = localStorage.getItem('accountId');
+  const token = localStorage.getItem('token');
   dispatch(postRecordRequest());
   Axios.post(
     `https://degrassi-poppy-80494.herokuapp.com/accounts/${accountId}/records`,
     data,
     {
       headers: { Authorization: `Bearer ${token}` },
-    }
+    },
   )
     .then((response) => {
       dispatch(postRecordSuccess(response));
@@ -34,21 +34,19 @@ export const fetchPostRecord = (data) => (dispatch) => {
 };
 
 export const deleteRecordSuccess = (record) => ({
-  type: "FETCH_DELETE_RECORD_SUCCESS",
+  type: 'FETCH_DELETE_RECORD_SUCCESS',
   payload: record,
 });
 
 export const deleteRecord = (selectedRecord) => (dispatch) => {
   const accountId = selectedRecord.account_id;
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   const recordId = selectedRecord.id;
-  console.log(accountId);
-  console.log(recordId);
   Axios.delete(
     `https://degrassi-poppy-80494.herokuapp.com/accounts/${accountId}/records/${recordId}`,
     {
       headers: { Authorization: `Bearer ${token}` },
-    }
+    },
   )
     .then(() => {
       dispatch(deleteRecordSuccess(recordId));
