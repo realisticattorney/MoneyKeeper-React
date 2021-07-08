@@ -76,7 +76,6 @@ RecordDetail.propTypes = {
     frequency: PropTypes.string,
     description: PropTypes.string,
     pending: PropTypes.string,
-    // created_at: PropTypes.string,
   }),
 };
 

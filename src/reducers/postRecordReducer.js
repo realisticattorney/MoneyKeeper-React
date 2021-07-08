@@ -6,8 +6,6 @@ const initialState = {
 const postRecordReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_POST_RECORD_SUCCESS":
-      console.log(action.payload);
-      console.log("RECORD POST SUCESSSSS");
       let existing = localStorage.getItem("userRecords");
       existing = existing ? existing.split(",") : [];
       existing.push(action.payload.data);

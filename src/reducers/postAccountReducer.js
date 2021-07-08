@@ -9,8 +9,6 @@ const initialState = {
 const postAccountReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_POST_ACCOUNT_SUCCESS":
-      console.log(action.payload);
-      console.log("POST SUCESSSSS");
       localStorage.setItem("account_id", action.payload.data.id);
       localStorage.setItem("created_by", action.payload.data.created_by);
       localStorage.setItem("created_at", action.payload.data.created_at);

@@ -15,12 +15,6 @@ export const postRecordFailure = (error) => ({
 
 export const fetchPostRecord = (data) => (dispatch) => {
   const account_id = localStorage.getItem("account_id")
-  console.log("DATA")
-  console.log(data)
-  console.log("DATA")
-  console.log("account_id")
-  console.log(account_id)
-  console.log("account_id")
   const token = localStorage.getItem("token")
   dispatch(postRecordRequest());
   Axios.post(
@@ -31,13 +25,9 @@ export const fetchPostRecord = (data) => (dispatch) => {
     }
   )
     .then((response) => {
-      console.log("FETCH POST WORKS");
-      console.log(response);
-      console.log("FETCH POST WORKS");
       dispatch(postRecordSuccess(response));
     })
     .catch((error) => {
-      console.log(error);
       dispatch(postRecordFailure(error.message));
     });
 };
@@ -61,9 +51,6 @@ export const deleteRecord = (selectedRecord) => (dispatch) => {
     }
   )
     .then((response) => {
-      console.log("DELETE record");
-      console.log(response);
-      console.log("DELETE record");
       dispatch(deleteRecordSuccess(record_id));
     })
     .catch((error) => {

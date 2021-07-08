@@ -3,8 +3,6 @@ const initialState = [];
 const getRecordReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_GET_RECORDS_SUCCESS":
-      console.log(action.payload);
-      console.log("RECORD GET SUCESSSSS");
       localStorage.setItem(
         "userGetRecords",
         JSON.stringify(action.payload.data)
@@ -24,12 +22,6 @@ const getRecordReducer = (state = initialState, action) => {
         loading: false,
       };
     case "FETCH_DELETE_RECORD_SUCCESS":
-      console.log("action.payload");
-      console.log("action.payload");
-      console.log(action.payload);
-      console.log(action.payload);
-      console.log("action.payload");
-      console.log("action.payload");
       return {
         ...state.userGetRecords,
           userGetRecords: {

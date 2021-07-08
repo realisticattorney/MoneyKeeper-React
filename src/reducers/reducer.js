@@ -1,5 +1,4 @@
 /* eslint-disable */
-import jwtDecode from 'jwt-decode'
 
 const initialState = {
   loading: false,

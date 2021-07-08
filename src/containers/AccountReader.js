@@ -8,15 +8,6 @@ import { fetchSetGetAccount } from "../actions/actionsAccounts";
 
 function AccountReader({ fetchSetGetAccount }) {
   const auth = useSelector((state) => state);
-  console.log("ACCOUNT reader - auth");
-  console.log(auth);
-  console.log("ACCOUNT reader - auth");
-  console.log("ACCOUNT reader - auth.token");
-  const user = jwtDecode(auth.userInfo.token);
-  console.log("ACCOUNT reader - auth.token");
-  console.log("user_id from jwt decoded");
-  console.log(user);
-  console.log("user_id from jwt decoded");
   useEffect(() => {
     fetchSetGetAccount(auth.userInfo.token);
   }, []);

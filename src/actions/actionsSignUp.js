@@ -20,7 +20,6 @@ export const fetchSignUp = (user) => (dispatch) => {
   user, 
   )
     .then((response) => {
-      console.log(response)
       const { data } = response;
       localStorage.setItem("token", data.auth_token);
       localStorage.setItem("name", user.name);
@@ -29,7 +28,6 @@ export const fetchSignUp = (user) => (dispatch) => {
       dispatch(signupSuccess(data.auth_token, user));
     })
     .catch((error) => {
-      console.log(error);
       dispatch(signupFailure(error.message));
     });
 };

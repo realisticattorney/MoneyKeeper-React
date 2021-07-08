@@ -9,15 +9,6 @@ import { Redirect, Link } from "react-router-dom";
 function Sign_Up({ fetchSignUp }) {
   const { register, handleSubmit } = useForm();
   const auth = useSelector((state) => state);
-  console.log("auth.userInfo from signUp");
-  console.log(auth.userInfo);
-  console.log("auth.userInfo from signUp");
-  console.log("auth.userInfo loading value");
-  console.log(auth.userInfo.loading);
-  console.log("auth.userInfo loading value");
-  console.log("auth.userInfo token object keys");
-  console.log(auth.userInfo.token);
-  console.log("auth.userInfo token object keys");
   const onSubmit = (data) => {
     console.log(data);
     fetchSignUp(data);

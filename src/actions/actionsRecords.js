@@ -23,13 +23,9 @@ export const fetchGetRecords = (account_id) => (dispatch) => {
     }
   )
     .then((response) => {
-      console.log("FETCH GET recordsss");
-      console.log(response);
-      console.log("FETCH GET recordsss");
       dispatch(getRecordsSuccess(response));
     })
     .catch((error) => {
-      console.log(error);
       dispatch(getRecordsFailure(error.message));
     });
 };

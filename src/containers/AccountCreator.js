@@ -9,15 +9,6 @@ import { fetchPostAccount } from "../actions/actionsPostAccount";
 
 function AccountCreator({ fetchGetAccount, fetchPostAccount }) {
   const auth = useSelector((state) => state);
-  console.log("ACCOUNT CREATOR - auth");
-  console.log(auth);
-  console.log("ACCOUNT CREATOR - auth");
-  console.log("ACCOUNT CREATOR - auth.token");
-  const user = jwtDecode(auth.userInfo.token);
-  console.log("ACCOUNT CREATOR - auth.token");
-  console.log("user_id from jwt decoded");
-  console.log(user);
-  console.log("user_id from jwt decoded");
   useEffect(() => {
     fetchGetAccount(auth.userInfo.token);
     fetchPostAccount(auth.userInfo.token);

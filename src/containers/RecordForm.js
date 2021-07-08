@@ -9,7 +9,6 @@ import { Redirect, Link } from "react-router-dom";
 function Record({ fetchPostRecord }) {
   const { register, handleSubmit } = useForm();
   const auth = useSelector((state) => state);
-  console.log("auth.userInfo from record");
   
   const onSubmit = (data) => {
     console.log(data);

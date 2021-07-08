@@ -20,13 +20,9 @@ export const fetchPostAccount = (token) => (dispatch) => {
     headers: { "Authorization": `Bearer ${token}` },
   })
     .then((response) => {
-      console.log("FETCH POST WORKS")
-      console.log(response);
-      console.log("FETCH POST WORKS")
       dispatch(postAccountSuccess(response));
     })
     .catch((error) => {
-      console.log(error);
       dispatch(postAccountFailure(error.message));
     });
 };

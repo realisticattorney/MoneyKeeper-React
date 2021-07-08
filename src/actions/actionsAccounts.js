@@ -32,13 +32,9 @@ export const fetchGetAccount = (token) => (dispatch) => {
     headers: { Authorization: AuthStr },
   })
     .then((response) => {
-      console.log("FETCH GET SUCCESS ")
-      console.log(response)
-      console.log("FETCH GET SUCCESS ")
       dispatch(getAccountsSuccess(response));
     })
     .catch((error) => {
-      console.log(error);
       dispatch(getAccountsFailure(error.message));
     });
 };
@@ -50,13 +46,9 @@ export const fetchSetGetAccount = (token) => (dispatch) => {
     headers: { Authorization: AuthStr },
   })
     .then((response) => {
-      console.log("FETCH GET SUCCESS ");
-      console.log(response);
-      console.log("FETCH GET SUCCESS ");
       dispatch(getSetAccountsSuccess(response));
     })
     .catch((error) => {
-      console.log(error);
       dispatch(getSetAccountsFailure(error.message));
     });
 };
