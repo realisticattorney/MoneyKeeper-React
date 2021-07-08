@@ -1,32 +1,31 @@
-/* eslint-diable */
 /* eslint-disable consistent-return */
 
-import React, { useEffect } from 'react';
-import { connect, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Redirect, Link } from 'react-router-dom';
-import { fetchGetRecords } from '../actions/actionsRecords';
-import Record from '../components/Record';
+import React, { useEffect } from "react";
+import { connect, useSelector } from "react-redux";
+import PropTypes from "prop-types";
+import { Redirect, Link } from "react-router-dom";
+import { fetchGetRecords } from "../actions/actionsRecords";
+import Record from "../components/Record";
 
 function Main({ fetchGetRecords }) {
   const auth = useSelector((state) => state);
   const forceUpdate = React.useReducer(() => ({}))[1];
   const { accountId } = auth.userAccount;
-  const getRecords = localStorage.getItem('getRecords');
-  localStorage.setItem('posted', false);
+  const getRecords = localStorage.getItem("getRecords");
+  localStorage.setItem("posted", false);
   useEffect(() => {
-    if (auth.userGetRecords.records === undefined || getRecords === 'true') {
+    if (auth.userGetRecords.records === undefined || getRecords === "true") {
       setTimeout(() => {
         forceUpdate();
       }, 100);
       fetchGetRecords(accountId);
-      localStorage.setItem('getRecords', false);
+      localStorage.setItem("getRecords", false);
     }
   }, []);
 
   if (
-    auth.userAccount.created_by === 'undefined'
-    || auth.userAccount.created_by === undefined
+    auth.userAccount.created_by === "undefined" ||
+    auth.userAccount.created_by === undefined
   ) {
     return <Redirect to="/" />;
   }

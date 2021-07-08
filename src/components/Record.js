@@ -1,13 +1,9 @@
-/* eslint-diable */
-
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Record({ record, accountId }) {
-  const {
-    amount, frequency, pending, category, id, description,
-  } = record;
+  const { amount, frequency, pending, category, id, description } = record;
 
   const flowDirection = record.flow_direction;
 
@@ -17,7 +13,7 @@ function Record({ record, accountId }) {
         <div className="left-side">
           <p className="category">{description}</p>
           <p className="author">{frequency.toUpperCase()}</p>
-          <p className={`${pending === 'yes' ? 'pending-yes' : 'pending-no'}`}>
+          <p className={`${pending === "yes" ? "pending-yes" : "pending-no"}`}>
             {pending.toUpperCase()}
           </p>
         </div>
@@ -26,7 +22,7 @@ function Record({ record, accountId }) {
             className="title"
             style={{
               backgroundColor:
-                flowDirection === 'income' ? '#327A6B' : '#f0797c',
+                flowDirection === "income" ? "#327A6B" : "#f0797c",
             }}
           >
             {amount}

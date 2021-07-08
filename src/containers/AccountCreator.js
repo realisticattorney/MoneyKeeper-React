@@ -1,11 +1,9 @@
-/* eslint-diable */
-
-import React, { useEffect } from 'react';
-import { connect, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
-import { fetchGetAccount } from '../actions/actionsAccounts';
-import { fetchPostAccount } from '../actions/actionsPostAccount';
+import React, { useEffect } from "react";
+import { connect, useSelector } from "react-redux";
+import PropTypes from "prop-types";
+import { Redirect } from "react-router-dom";
+import { fetchGetAccount } from "../actions/actionsAccounts";
+import { fetchPostAccount } from "../actions/actionsPostAccount";
 
 function AccountCreator({ fetchGetAccount, fetchPostAccount }) {
   const auth = useSelector((state) => state);

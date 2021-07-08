@@ -1,6 +1,5 @@
-/* eslint-diable */
-import React from 'react';
-import AccountReader from '../containers/AccountReader';
+import React from "react";
+import AccountReader from "../containers/AccountReader";
 
 function App() {
   return (

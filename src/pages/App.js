@@ -1,7 +1,6 @@
-/* eslint-diable */
-import React from 'react';
-import NavBar from '../components/NavBar';
-import Home from '../containers/Home';
+import React from "react";
+import NavBar from "../components/NavBar";
+import Home from "../containers/Home";
 
 function App() {
   return (
