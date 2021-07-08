@@ -1,32 +1,33 @@
-/* eslint-disable */
-import React from "react";
-import { useForm } from "react-hook-form";
-import { fetchPostRecord } from "../actions/actionsPostRecord";
-import { connect, useSelector } from "react-redux";
-import PropTypes from "prop-types";
-import { Redirect, Link } from "react-router-dom";
+/* eslntdisable */
+
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { connect, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Redirect, Link } from 'react-router-dom';
+import { fetchPostRecord } from '../actions/actionsPostRecord';
 
 function Record({ fetchPostRecord }) {
   const { register, handleSubmit } = useForm();
   const auth = useSelector((state) => state);
-  
+
   const onSubmit = (data) => {
     console.log(data);
     if (data.pending == false) {
-      data.pending = "yes"
+      data.pending = 'yes';
     }
     fetchPostRecord(data);
-    localStorage.setItem("getRecords", "true");
-    localStorage.setItem("posted", "true");
+    localStorage.setItem('getRecords', 'true');
+    localStorage.setItem('posted', 'true');
   };
 
-  return localStorage.getItem("posted") == "true" ? (
+  return localStorage.getItem('posted') == 'true' ? (
     <Redirect to="/main" />
   ) : (
     <div className="signup">
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          {...register("pending")}
+          {...register('pending')}
           id="record-checkbox"
           value="no"
           type="checkbox"
@@ -34,22 +35,22 @@ function Record({ fetchPostRecord }) {
         />
         <input
           type="number"
-          {...register("amount", {
+          {...register('amount', {
             required: true,
           })}
           placeholder="Quantity ($)"
         />
 
-        <select {...register("flow_direction")}>
+        <select {...register('flow_direction')}>
           <option value="income">Income (+)</option>
           <option value="expenditure">Expenditure (-)</option>
         </select>
 
-        <select {...register("frequency")}>
+        <select {...register('frequency')}>
           <option value="once">One time only</option>
           <option value="regularly">Regularly</option>
         </select>
-        
+
         {/* <select {...register("time_span")}>
           <option value="daily">Daily</option>
           <option value="weekly">Weekly</option>
@@ -58,7 +59,7 @@ function Record({ fetchPostRecord }) {
         </select> */}
 
         <input
-          {...register("description", {
+          {...register('description', {
             required: true,
             minLength: 0,
             maxLength: 50,
@@ -66,7 +67,7 @@ function Record({ fetchPostRecord }) {
           placeholder="Label / Title"
         />
         <input
-          {...register("category", {
+          {...register('category', {
             required: true,
             minLength: 0,
             maxLength: 20,

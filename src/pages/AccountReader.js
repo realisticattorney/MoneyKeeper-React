@@ -1,6 +1,6 @@
-/* eslint-disable */
-import React from "react";
-import AccountReader from "../containers/AccountReader";
+/* eslntdisable */
+import React from 'react';
+import AccountReader from '../containers/AccountReader';
 
 function App() {
   return (

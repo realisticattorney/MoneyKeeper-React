@@ -1,23 +1,23 @@
-/* eslint-disable */
-import Axios from "axios";
-const url = "https://degrassi-poppy-80494.herokuapp.com/";
+/* eslntdisable */
+import Axios from 'axios';
+
 export const postAccountRequest = () => ({
-  type: "FETCH_POST_ACCOUNT_REQUEST",
+  type: 'FETCH_POST_ACCOUNT_REQUEST',
 });
 
 export const postAccountSuccess = (accounts) => ({
-  type: "FETCH_POST_ACCOUNT_SUCCESS",
+  type: 'FETCH_POST_ACCOUNT_SUCCESS',
   payload: accounts,
 });
 export const postAccountFailure = (error) => ({
-  type: "FETCH_POST_ACCOUNT_FAILURE",
+  type: 'FETCH_POST_ACCOUNT_FAILURE',
   payload: error,
 });
 
 export const fetchPostAccount = (token) => (dispatch) => {
   dispatch(postAccountRequest());
-  Axios.post("https://degrassi-poppy-80494.herokuapp.com/accounts", null, {
-    headers: { "Authorization": `Bearer ${token}` },
+  Axios.post('https://degrassi-poppy-80494.herokuapp.com/accounts', null, {
+    headers: { Authorization: `Bearer ${token}` },
   })
     .then((response) => {
       dispatch(postAccountSuccess(response));
