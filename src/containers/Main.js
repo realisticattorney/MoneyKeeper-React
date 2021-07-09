@@ -9,6 +9,8 @@ import Record from '../components/Record';
 
 function Main({ fetchGetRecords }) {
   const auth = useSelector((state) => state);
+  const records = useSelector((state) => state.userGetRecords.records);
+  localStorage.setItem('recordsLocal', JSON.stringify(records));
   const forceUpdate = React.useReducer(() => ({}))[1];
   const { accountId } = auth.userAccount;
   const getRecords = localStorage.getItem('getRecords');
