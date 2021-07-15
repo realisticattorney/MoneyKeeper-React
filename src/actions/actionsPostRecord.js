@@ -37,6 +37,11 @@ export const deleteRecordSuccess = (record) => ({
   payload: record,
 });
 
+export const deleteRecordFailure = (error) => ({
+  type: 'FETCH_DELETE_ERROR_FAILURE',
+  payload: error,
+});
+
 export const deleteRecord = (selectedRecord) => (dispatch) => {
   const accountId = selectedRecord.account_id;
   const token = localStorage.getItem('token');
@@ -51,6 +56,6 @@ export const deleteRecord = (selectedRecord) => (dispatch) => {
       dispatch(deleteRecordSuccess(recordId));
     })
     .catch((error) => {
-      console.log(error);
+      dispatch(deleteRecordFailure(error.message));
     });
 };

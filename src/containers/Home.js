@@ -6,7 +6,6 @@ import { Redirect } from 'react-router-dom';
 
 const Home = () => {
   const userSigned = useSelector((state) => state.userAccount.created_by);
-  console.log(userSigned);
   if (userSigned != '') {
     return <Redirect to="/main" />;
   }
