@@ -30,6 +30,11 @@ const getRecordReducer = (state = initialState, action) => {
           ),
         },
       };
+    case 'FETCH_DELETE_RECORD_FAILURE':
+      return {
+        ...state.userGetRecords,
+        loading: false,
+      };
     default:
       return state;
   }
