@@ -39,6 +39,7 @@ function SignIn({ fetchSignIn }) {
             minLength: 6,
             maxLength: 20,
           })}
+          type="password"
           placeholder="Password"
         />
         <button className="form-button" type="submit">

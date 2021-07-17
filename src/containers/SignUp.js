@@ -40,6 +40,7 @@ function SignUp({ fetchSignUp }) {
               maxLength: 20,
             })}
             placeholder="Password"
+            type="password"
           />
           <input
             {...register('password_confirmation', {
@@ -48,6 +49,7 @@ function SignUp({ fetchSignUp }) {
               maxLength: 20,
             })}
             placeholder="Password confirmation"
+            type="password"
           />
           <button className="form-button" type="submit">
             Register
