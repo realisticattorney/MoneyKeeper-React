@@ -12,7 +12,6 @@ function Record({ fetchPostRecord }) {
   const auth = useSelector((state) => state);
 
   const onSubmit = (data) => {
-    console.log(data);
     if (data.pending == false) {
       data.pending = 'yes';
     }
@@ -50,13 +49,6 @@ function Record({ fetchPostRecord }) {
           <option value="once">One time only</option>
           <option value="regularly">Regularly</option>
         </select>
-
-        {/* <select {...register("time_span")}>
-          <option value="daily">Daily</option>
-          <option value="weekly">Weekly</option>
-          <option value="bi-weekly">Bi-Weekly</option>
-          <option value="monthly">Monthly</option>
-        </select> */}
 
         <input
           {...register('description', {

@@ -14,7 +14,11 @@ const Home = () => {
       <h3 className="home-nav">Welcome to</h3>
       <h1 className="home-title">Money Keeper</h1>
       <p className="home-pitch">
-        Keeping track <br /> has never been easier
+        Keeping track
+        {' '}
+        <br />
+        {' '}
+        has never been easier
       </p>
       <a className="home-cta-signup" href="/sign_up">
         CREATE ACCOUNT

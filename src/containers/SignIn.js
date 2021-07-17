@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-nested-ternary */
+/* eslint-disable no-param-reassign */
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { connect, useSelector } from 'react-redux';
@@ -11,6 +12,7 @@ function SignIn({ fetchSignIn }) {
   const { register, handleSubmit } = useForm();
   const auth = useSelector((state) => state);
   const onSubmit = (data) => {
+    data.password_confirmation = data.password;
     fetchSignIn(data);
   };
 
@@ -38,14 +40,6 @@ function SignIn({ fetchSignIn }) {
             maxLength: 20,
           })}
           placeholder="Password"
-        />
-        <input
-          {...register('password_confirmation', {
-            required: true,
-            minLength: 6,
-            maxLength: 20,
-          })}
-          placeholder="Password confirmation"
         />
         <button className="form-button" type="submit">
           Login

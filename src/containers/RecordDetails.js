@@ -7,7 +7,6 @@ import RecordDetail from "../components/RecordDetail";
 export default function StockDetails() {
   const { id } = useParams();
   const getRecordLocal = JSON.parse(localStorage.getItem("recordsLocal"));
-  console.log(getRecordLocal)
   const selectedRecord = getRecordLocal.filter(
     (record) => record.id.toString() === id
   );
