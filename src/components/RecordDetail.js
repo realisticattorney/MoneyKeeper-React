@@ -1,30 +1,31 @@
-/* eslint-disable */
-import React from "react";
-import PropTypes from "prop-types";
-import { Redirect, Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { deleteRecord } from "../actions/actionsPostRecord";
+/* eslint-disable no-undef */
+
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Redirect, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { deleteRecord } from '../actions/actionsPostRecord';
 
 const RecordDetail = ({ selectedRecord, deleteRecord }) => {
   const forceUpdate = React.useReducer(() => ({}))[1];
   const onSubmit = (e) => {
     e.preventDefault();
     deleteRecord(selectedRecord);
-    localStorage.setItem("getRecords", "true");
-    localStorage.setItem("posted", "true");
+    localStorage.setItem('getRecords', 'true');
+    localStorage.setItem('posted', 'true');
     setTimeout(() => {
       forceUpdate();
     }, 800);
   };
 
-  return localStorage.getItem("getRecords") === "true" ? (
+  return localStorage.getItem('getRecords') === 'true' ? (
     <Redirect to="/main" />
   ) : (
     <div className="det">
       <div className="det-middle">
         <div className="det-left-side">
           <p className="det-price">
-            {" "}
+            {' '}
             $
             {selectedRecord === undefined
               ? getRecordLocal.amount
@@ -36,12 +37,12 @@ const RecordDetail = ({ selectedRecord, deleteRecord }) => {
             <span className="btn-menu-modular">X</span>
           </Link>
           <p>
-            {" "}
+            {' '}
             Pending:
             {selectedRecord.pending}
           </p>
           <p>
-            {" "}
+            {' '}
             Frequency:
             {selectedRecord.frequency}
           </p>
@@ -56,11 +57,15 @@ const RecordDetail = ({ selectedRecord, deleteRecord }) => {
       </div>
       <div className="det-top">
         <p className="det-top-subtitle">
-          Category: <br />
+          Category:
+          {' '}
+          <br />
           {selectedRecord.category}
         </p>
         <p className="det-top-subtitle">
-          Description: <br />
+          Description:
+          {' '}
+          <br />
           {selectedRecord.description}
         </p>
       </div>

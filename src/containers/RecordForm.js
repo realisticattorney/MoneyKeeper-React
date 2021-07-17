@@ -1,18 +1,18 @@
-/* eslint-disable */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable no-param-reassign */
 
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { connect, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
 import { fetchPostRecord } from '../actions/actionsPostRecord';
 
 function Record({ fetchPostRecord }) {
   const { register, handleSubmit } = useForm();
-  const auth = useSelector((state) => state);
 
   const onSubmit = (data) => {
-    if (data.pending == false) {
+    if (data.pending === false) {
       data.pending = 'yes';
     }
     fetchPostRecord(data);
@@ -20,7 +20,7 @@ function Record({ fetchPostRecord }) {
     localStorage.setItem('posted', 'true');
   };
 
-  return localStorage.getItem('posted') == 'true' ? (
+  return localStorage.getItem('posted') === 'true' ? (
     <Redirect to="/main" />
   ) : (
     <div className="signup">
