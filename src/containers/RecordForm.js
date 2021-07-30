@@ -17,10 +17,10 @@ function Record({ fetchPostRecord }) {
     }
     fetchPostRecord(data);
     localStorage.setItem('getRecords', 'true');
-    localStorage.setItem('posted', 'true');
+    localStorage.setItem('posted', true);
   };
 
-  return localStorage.getItem('posted') === 'true' ? (
+  return localStorage.getItem('posted') === true ? (
     <Redirect to="/main" />
   ) : (
     <div className="signup">

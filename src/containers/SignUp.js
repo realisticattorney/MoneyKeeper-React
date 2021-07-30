@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-nested-ternary */
 
@@ -10,15 +11,12 @@ import { fetchSignUp } from '../actions/actionsSignUp';
 
 function SignUp({ fetchSignUp }) {
   const { register, handleSubmit } = useForm();
-  const auth = useSelector((state) => state);
+  const auth = useSelector((state) => state.userInfo);
   const onSubmit = (data) => {
     fetchSignUp(data);
   };
 
-  return auth.userInfo.loading && auth.userInfo.token === 'undefined' ? (
-    <div className="loading">Loading&#8230;</div>
-  ) : auth.userInfo.token === 'undefined'
-    || auth.userInfo.token === undefined ? (
+  return auth.token === 'undefined' ? (
       <div className="signup">
         <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
           <input

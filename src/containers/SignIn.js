@@ -10,15 +10,13 @@ import { fetchSignIn } from '../actions/actionsSignIn';
 
 function SignIn({ fetchSignIn }) {
   const { register, handleSubmit } = useForm();
-  const auth = useSelector((state) => state);
+  const auth = useSelector((state) => state.userInfo);
   const onSubmit = (data) => {
     data.password_confirmation = data.password;
     fetchSignIn(data);
   };
 
-  return auth.userInfo.loading && auth.userInfo.token === 'undefined' ? (
-    <div className="loading">Loading&#8230;</div>
-  ) : auth.userInfo.token === 'undefined' || auth.userInfo.token === undefined ? (
+  return auth.token === 'undefined' ? (
     <div className="signup">
       <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
         <input
