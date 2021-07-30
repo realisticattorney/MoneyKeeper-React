@@ -16,7 +16,9 @@ function SignIn({ fetchSignIn }) {
     fetchSignIn(data);
   };
 
-  return auth.token === 'undefined' ? (
+  return auth.loading === true && auth.token === 'undefined' ? (
+    <div className="loading">Loading&#8230;</div>
+  ) : auth.token === 'undefined' ? (
     <div className="signup">
       <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
         <input
