@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import App from '../pages/App';
@@ -12,7 +13,7 @@ import RecordDetails from '../containers/RecordDetails';
 function Routes() {
   return (
     <div className="App">
-      <Router>
+      {/* <Router> */}
         <Switch>
           <Route path="/" exact component={App} />
           <Route path="/sign_up" component={SignUp} />
@@ -47,7 +48,7 @@ function Routes() {
           />
           <Route>404 Not Found!</Route>
         </Switch>
-      </Router>
+      {/* </Router> */}
     </div>
   );
 }

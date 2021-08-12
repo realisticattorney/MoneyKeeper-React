@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Axios from 'axios';
 
 export const postRecordRequest = () => ({
@@ -52,10 +53,11 @@ export const deleteRecord = (selectedRecord) => (dispatch) => {
       headers: { Authorization: `Bearer ${token}` },
     },
   )
-    .then(() => {
+     .then((response) => {
       dispatch(deleteRecordSuccess(recordId));
     })
     .catch((error) => {
+      console.log(error);
       dispatch(deleteRecordFailure(error.message));
     });
 };

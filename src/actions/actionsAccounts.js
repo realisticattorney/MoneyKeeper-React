@@ -26,10 +26,10 @@ export const getSetAccountsFailure = (error) => ({
 });
 
 export const fetchGetAccount = (token) => (dispatch) => {
-  const AuthStr = 'Bearer '.concat(token);
+  const authStr = 'Bearer '.concat(token);
   dispatch(getAccountsRequest());
   Axios.get('https://degrassi-poppy-80494.herokuapp.com/accounts', {
-    headers: { Authorization: AuthStr },
+    headers: { Authorization: authStr },
   })
     .then((response) => {
       dispatch(getAccountsSuccess(response));
@@ -40,9 +40,9 @@ export const fetchGetAccount = (token) => (dispatch) => {
 };
 
 export const fetchSetGetAccount = (token) => (dispatch) => {
-  const AuthStr = 'Bearer '.concat(token);
+  const authStr = 'Bearer '.concat(token);
   Axios.get('https://degrassi-poppy-80494.herokuapp.com/accounts', {
-    headers: { Authorization: AuthStr },
+    headers: { Authorization: authStr },
   })
     .then((response) => {
       dispatch(getSetAccountsSuccess(response));

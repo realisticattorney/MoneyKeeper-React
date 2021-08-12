@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -11,7 +12,7 @@ function AccountReader({ fetchSetGetAccount }) {
   }, []);
 
   return Object.keys(auth.userAccount) === 0 ? (
-    <p>Loading.2..</p>
+    <p>Loading...</p>
   ) : (
     <Redirect to="/main" />
   );
